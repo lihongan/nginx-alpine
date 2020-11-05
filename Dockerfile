@@ -12,7 +12,7 @@ COPY certs/ /etc/nginx/
 COPY ca.pem /tmp/ca.pem
 COPY entrypoint.sh /usr/bin/entrypoint.sh
 
-RUN chmod -R 777 /data
+RUN chmod -R 777 /data && chmod -R 777 /var/log/nginx && chmod -R 777 /var/lib/nginx
 
 ENTRYPOINT ["/usr/bin/entrypoint.sh"]
 CMD ["nginx", "-g", "daemon off;"]
